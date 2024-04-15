@@ -5,4 +5,6 @@ import com.hibernetmapping.mappingtype.entities.Question;
 public interface questionservice
 {
     public Question create(Question q);
+
+    public Integer deleteQuestionById(Integer i);
 }

@@ -17,4 +17,16 @@ public class questionimp implements questionservice
     public Question create(Question q) {
         return questionrepo1.save(q);
     }
+
+    @Override
+    public Integer deleteQuestionById(Integer i) {
+       Integer i1= questionrepo1.deleteQuestionById(i);
+       if(i==1)
+       {
+           return 1;
+       }else
+       {
+           return  0;
+       }
+    }
 }

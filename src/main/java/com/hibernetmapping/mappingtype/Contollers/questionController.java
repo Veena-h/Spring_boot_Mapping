@@ -1,13 +1,12 @@
 package com.hibernetmapping.mappingtype.Contollers;
 
 
+import com.hibernetmapping.mappingtype.entities.Answer;
 import com.hibernetmapping.mappingtype.entities.Question;
 import com.hibernetmapping.mappingtype.services.serviceimpl.questionimp;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/question")
@@ -22,5 +21,22 @@ public class questionController
     {
         return  imp.create(q);
     }
+
+
+    @DeleteMapping("/delete/{id}")
+    public Integer delete(@PathVariable Integer id)
+    {
+        return imp.deleteQuestionById(id);
+    }
+
+
+    @PostConstruct()
+    public Question bydefault()
+    {
+        Question q1=new Question();
+        q1.setQuestion("what is hibernate?");
+        return imp.create(q1);
+    }
+
 
 }

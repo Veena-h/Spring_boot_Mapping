@@ -8,12 +8,13 @@ import lombok.Data;
 public class Answer
 {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
 
     private  String answer;
-    @OneToOne(mappedBy = "answer")
+//    @OneToOne
+    @ManyToOne()
     Question question;
 
     public int getId() {
